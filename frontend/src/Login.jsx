@@ -12,11 +12,14 @@ export default function Login() {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+      const res = await fetch(
+        'https://greencart-logistics-backend-d21p.onrender.com/auth/login',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        }
+      );
 
       const data = await res.json();
 

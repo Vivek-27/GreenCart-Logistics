@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(
   cors({
-    origin: 'http://localhost:3000', // your frontend address
+    origin: 'https://greencart-logistics-iwp1.onrender.com', // your frontend address
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
   })

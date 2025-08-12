@@ -16,7 +16,9 @@ export default function Management() {
   const fetchData = async (t) => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/${t}`);
+      const res = await fetch(
+        `https://greencart-logistics-backend-d21p.onrender.com/${t}`
+      );
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
       // Ensure it's always an array
@@ -50,17 +52,23 @@ export default function Management() {
 
     try {
       if (editId === null) {
-        await fetch(`http://localhost:5000/${tab}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
+        await fetch(
+          `https://greencart-logistics-backend-d21p.onrender.com/${tab}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          }
+        );
       } else {
-        await fetch(`http://localhost:5000/${tab}/${editId}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
+        await fetch(
+          `https://greencart-logistics-backend-d21p.onrender.com/${tab}/${editId}`,
+          {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          }
+        );
         setEditId(null);
       }
       fetchData(tab);
@@ -80,7 +88,10 @@ export default function Management() {
   const handleDelete = async (id) => {
     setLoading(true);
     try {
-      await fetch(`http://localhost:5000/${tab}/${id}`, { method: 'DELETE' });
+      await fetch(
+        `https://greencart-logistics-backend-d21p.onrender.com/${tab}/${id}`,
+        { method: 'DELETE' }
+      );
       fetchData(tab);
     } catch (err) {
       console.error(err);

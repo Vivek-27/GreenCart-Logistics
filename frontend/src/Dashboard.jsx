@@ -27,7 +27,9 @@ export default function Dashboard() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/metrics');
+        const res = await fetch(
+          'https://greencart-logistics-backend-d21p.onrender.com/api/metrics'
+        );
         if (!res.ok) {
           throw new Error(`Server returned ${res.status}`);
         }

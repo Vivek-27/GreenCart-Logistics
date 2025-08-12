@@ -14,9 +14,15 @@ export default function Simulation() {
   useEffect(() => {
     // Fetch data from backend when component loads
     Promise.all([
-      fetch('http://localhost:5000/drivers').then((res) => res.json()),
-      fetch('http://localhost:5000/routes').then((res) => res.json()),
-      fetch('http://localhost:5000/orders').then((res) => res.json())
+      fetch(
+        'https://greencart-logistics-backend-d21p.onrender.com/drivers'
+      ).then((res) => res.json()),
+      fetch(
+        'https://greencart-logistics-backend-d21p.onrender.com/routes'
+      ).then((res) => res.json()),
+      fetch(
+        'https://greencart-logistics-backend-d21p.onrender.com/orders'
+      ).then((res) => res.json())
     ])
       .then(([driversData, routesData, ordersData]) => {
         setDrivers(driversData);
