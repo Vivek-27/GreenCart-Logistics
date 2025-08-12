@@ -17,8 +17,9 @@ app.use(bodyParser.json());
 // Connect to MongoDB (replace connection string with your own)
 const loadInitialData = require('./loadInitialData');
 
+const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/greencart';
 mongoose
-  .connect('mongodb://localhost:27017/greencart', {
+  .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
